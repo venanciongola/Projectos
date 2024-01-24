@@ -1,1 +1,0 @@
-const myNavBar = document.querySelector("");
