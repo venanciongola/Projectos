@@ -5,17 +5,21 @@
     display: flex;
     justify-content: space-between;
 }
- .wrp{
-    flex-wrap: wrap;
-}
+
+.wrp{    flex-wrap: wrap;}
+.jCnter{    justify-content: center;}
 .flx>div{
     flex: 1 1 max-content;
-    padding: 1rem;
+    padding: 1rem 0;
+}
+
+.flx>div:not(:last-child){
+    padding-right: .3rem;
 }
 
 .flx>li{
     flex: 1 1 min-content;
-    padding: .5rem;
+    padding: .3rem;
 }
 
 .ul{
@@ -27,7 +31,7 @@
 .link{
     text-decoration: none;
     color: #353434c8;
-    padding: .5rem;
+    padding: .6rem;
 }
 .link:hover{
     color: #111;

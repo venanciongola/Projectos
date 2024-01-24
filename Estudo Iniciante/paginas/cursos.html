@@ -4,6 +4,9 @@
         <meta http-equiv="content-type" content="text/html; charset=utf-8" />
         <title>Estuda De programação</title>
         <link rel="stylesheet" href="../css/style.css" type="text/css" media="all" />
+        <link rel="stylesheet" href="../css/estilosProntos.css" type="text/css" media="all" />
+
+        <script src="../js/jquery.js"></script>
     </head>
     <body>
         
@@ -17,6 +20,7 @@
                 <a href="../index.html">home</a>
                 <a href="cursos.html">cursos</a>
                 <a href="sobre.html">sobre</a>
+                <a class="login" href="?"><i></i></a>
               </nav>
             </div>
             <hr>
@@ -25,27 +29,27 @@
             <h1>
               <center>Queres Prender a Programar? </center>
             </h1>
-          <form>
-            <div id="corpo_linguagem">
+          <form id="formularioDeCursos" method="POST">
+            <div id="corpoLinguagem">
                 <p><center>Escolhe a linguagem  que perdendes aprender</center></p>
-                <select name="escolha a linguagem" id="escolha a linguagem">
-                    <option value= "Html e Css">Html e Css</optio>
+                <select name="escolhaALinguagem" id="escolhaALinguagem">
+                    <option value= "Html e Css" selected>Html e Css</option>
                     <option value="JavaScript">JavaScript</option>
                     <option value="python">python</option>
                     <option value="c++">C++</option>
                     <option value="php">php</option>
                 </select>
             </div>
-            <div id="corpo_nivel">
+            <div id="corpoNivel">
                 <p>Escolhe o seu nível de conhecimento</p>
-                <select name="EScolhe o nivel" id="escolhe o nivel">
-                    <option value="Iniciante">Iniciante</option>
+                <select name="EScolheONivel" id="escolheONivel">
+                    <option value="Iniciante" selected>Iniciante</option>
                     <option value="Junior">Junior</option>
                     <option value="Senior">Senior</option>
                 </select>
                 
             </div>
-            <div class="corpo_enviar">
+            <div class="corpoEnviar">
               <button type="submit" id="botao-envio"> Seguir</button>
             </div>
             <div id="contador">...</div>
@@ -56,4 +60,30 @@
           <p>&copy;Vb3 2024. Todos os direito reservados.</p>
         </footer>
     </body>
+    <script>
+      $(function(){
+        
+        var linguagem = $("#escolhaALinguagem").val();
+        var nivel = $("#escolheONivel").val();
+
+        $("#escolhaALinguagem").change(function(){
+          linguagem = $("#escolhaALinguagem").val();
+        })
+        $("#escolheONivel").change(function(){
+          nivel = $("#escolheONivel").val();
+        })
+
+        $("#formularioDeCursos").submit(function(e){
+          e.preventDefault()
+          
+            $("#corpo").html(``);
+            $("#corpo").append(`<h1>Dados Do Formulário</h1>`);
+            $("#corpo").append(`<div></div>`);
+            $("#corpo div").append(`<h2>Voce Escolheu o curso de ${linguagem} </h2>`);
+            $("#corpo div").append(`<h2>Voce Escolheu o curso de ${$("select").val()} </h2>`);
+            $("#corpo div").append(`<h2>Voce Escolheu o curso de ${nivel} </h2>`);
+          
+        })
+      })
+    </script>
 </html>
